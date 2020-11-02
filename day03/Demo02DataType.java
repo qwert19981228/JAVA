@@ -5,6 +5,31 @@ public class Demo02DataType{
         // 不能发生自动类型转换
         // 格式: 范围小的类型 范围小的变量名 = (范围小的类型) 原本范围的大的数据
         int num =(int) 100L;
-        System.out.println(num); 
+        System.out.println(num);
+
+        // long强制转换为int类型  数据溢出
+        int num2 = (int) 6000000000L;
+        System.out.println(num2); // 1705032704
+
+        // double --> int,强制类型转换 精度损失
+        int num3 = (int) 3.99;
+        System.out.println(num3); // 3 , 这并不是四舍五入 , 所有的小数位都会被舍弃掉
+
+        char zifu1 = 'A'; // 这是一个字符型变量 , 里面是大写字母A
+        System.out.println(zifu1 + 1); // 66 , 也就是大写字母A被当作65进行处理
+        // 计算机的底层会用一个数字(二进制)来代表字符A , 就是65
+        // 一旦char类型进行了数学运算 , 那么字符就会按照一定的规则翻译成为一个数字
+
+        byte num4 = 40; // 注意! 右侧的数值大小不能超过左侧的类型转换
+        byte num5 = 50;
+        // byte + byte --> int + int --> int
+        int result1 = num4 +num5;
+        System.out.println(result1); // 90
+
+        short num6 = 60;
+        // byte + short --> int + int --> int
+        // int 强制转换为short: 注意必须保证逻辑上真实大小奔来就没有超过short范围, 否则会发生数据溢出
+        short result2 = (short) (num4 + num6);
+        System.out.println(result2);
     }
 }
