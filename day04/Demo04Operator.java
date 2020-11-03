@@ -22,7 +22,7 @@ public class Demo04Operator {
 
         // int + double --> double + double --> double
         double result3 = x + 2.5;
-        System.out.println(result3);
+        System.out.println(result3); // 12.5
 
     }
 }
