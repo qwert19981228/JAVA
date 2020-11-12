@@ -7,6 +7,9 @@ public class Demo02MethodDefine {
     public static void main(String[] args) {
         // 打印调用
         System.out.println(sum(10,20));
+        // 赋值调用
+        int s = sum(20,30);
+        System.out.println(s);
     }
     public static int sum(int a,int b){
         int result = a+b;
