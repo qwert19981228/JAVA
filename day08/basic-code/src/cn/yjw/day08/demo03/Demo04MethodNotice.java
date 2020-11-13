@@ -14,6 +14,9 @@ package cn.yjw.day08.demo03;
 public class Demo04MethodNotice {
     public static void main(String[] args) {
 
+        System.out.println(method1());
+        method2();
+        System.out.println(getMax(123,1234));
     }
     public static int method1(){
         return 10;
@@ -26,10 +29,6 @@ public class Demo04MethodNotice {
     }
     public static int getMax(int a , int b){
 
-        if (a > b){
-            return a;
-        }else{
-            return b;
-        }
+        return Math.max(a, b);
     }
 }
