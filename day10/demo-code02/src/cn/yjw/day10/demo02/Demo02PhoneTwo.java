@@ -3,6 +3,7 @@ package cn.yjw.day10.demo02;
 public class Demo02PhoneTwo {
     public static void main(String[] args) {
         Phone phone1 = new Phone();
+        System.out.println(phone1);
         System.out.println(phone1.brand); // null
         System.out.println(phone1.color); // null
         System.out.println(phone1.price); // double
@@ -20,6 +21,7 @@ public class Demo02PhoneTwo {
         phone1.setMessage();
 
         Phone phone2 = new Phone();
+        System.out.println(phone2);
         System.out.println(phone2.brand); // null
         System.out.println(phone2.color); // null
         System.out.println(phone2.price); // double
