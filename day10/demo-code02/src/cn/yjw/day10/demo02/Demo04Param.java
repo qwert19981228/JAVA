@@ -13,5 +13,5 @@ public class Demo04Param {
         System.out.println(param.color);
         System.out.println(param.price);
     }
-    
+
 }
