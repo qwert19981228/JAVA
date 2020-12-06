@@ -16,11 +16,11 @@ import java.util.ArrayList;
 public class Demo02ArrayList {
     public static void main(String[] args) {
         // 创建了一个ArrayList集合 , 集合的名称是list , 里面装的全都是String字符串类型的数据
-        // 备注: 从JDK 1.7+开始, 右侧的尖括号全部可以不写内容,但是<>本身还是要写的
+        // 备注: 从JDK 1.7+开始, 右侧的尖括号全部可以不写内容,但是<0>本身还是要写的
         ArrayList<String> list = new ArrayList<>();
         System.out.println(list);
 
-        // 向集合当中添加一些数据, 需要用到add方法
+        // 向集合当中添加一些数据, 需要用到add方法+*
         list.add("赵丽颖");
         System.out.println(list); // [赵丽颖]
 
