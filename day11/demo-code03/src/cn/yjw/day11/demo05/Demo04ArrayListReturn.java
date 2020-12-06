@@ -18,6 +18,7 @@ public class Demo04ArrayListReturn {
             bigList.add(num);
         }
         ArrayList<Integer> smallList = getSmallList(bigList);
+
         System.out.println("偶数总共有多少个: " + smallList.size());
         for (int i = 0; i < smallList.size(); i++) {
             System.out.print(smallList.get(i) + " ");
