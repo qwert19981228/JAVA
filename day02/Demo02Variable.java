@@ -8,7 +8,6 @@ public class Demo02Variable{
         num1 = 10;
         // 当打印输出变量名称的时候,显示出来的是变量的内容
         System.out.println(num1);
-
         // 改变变量当中本来的数字,变成新的数字
         num1 = 20;
         System.out.println(num1);
