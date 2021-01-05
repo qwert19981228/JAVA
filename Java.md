@@ -1,3 +1,5 @@
+[TOC]
+
 # Java
 
 ## 计算机基础知识
@@ -681,10 +683,176 @@ public class Demo06Operator{
         int num4 = 40;
         // 混合使用 , 前-- , 变量立刻马上-1变成39 , 然后将结果39交给result1变量
         int result1 = --num4;
-        System.out.println();
-        System.out.println("=========");
+        System.out.println(result1); // 39
+        System.out.println(num4); //39
         System.out.println("=========");
         
+        int num5 = 50;
+        // 混合使用 , 后-- , 首先把本来的数字50交给result2 , 然后我自己再-1变成49
+        int result2 = num5--;
+        System.out.println(result2); //50
+        System.out.println(num5); //49
+        System.out.println("=========");
+        
+        int x = 10;
+        int y = 20;
+        // 11 + 20 = 31
+        int result3 = ++x + y--;
+        System.out.println(result3); // 31
+        System.out.println(x); // 11
+        System.out.println(y); // 19
+        
+        // 30; // 错误写法! 常量不可以使用++或者--
+    }
+}
+```
+
+
+
+### 赋值运算符
+
+#### 基本赋值运算符
+
+基本赋值运算符 : 就是一个等号 "=" , 代表将右侧的数据交给左侧的变量 
+
+- `int a = 30;`
+
+#### 复合赋值运算符
+
+复合赋值运算符 : 
+
+- +=	a += 3	相当于	a = a+3
+- -=     b -= 4     相当于    b = b-3
+- *=    c *= 5     相当于    c = c`*`5
+- /=     d /= 6    相当于     d = d/6
+- %=   e %= 7   相当于     e = e%7
+
+#### 注意事项
+
+注意事项 : 
+
+1. 只有变量才能使用赋值运算符 , 常量不能进行赋值
+2. 复合赋值运算符其中隐含了一个强制类型转换
+
+```java
+// 赋值运算符
+public class Demo07Operator{
+    public static void main(String[] args){
+        int a = 10;
+        // 按照公式进行翻译 : a = a + 5
+        // a = 10 + 5;
+        // a = 15;
+        // a本来是10 , 现在重新赋值得到15
+        a += 5;
+        System.out.println(a); // 15
+        
+        int x = 10;
+        // x = x % 3;
+        // x = 10 % 3;
+        // x = 1;
+        // x本来就是10 , 现在重新赋值得到1
+        x %= 3;
+        System.out.println(x); // 1
+        // 50 = 30; // 常量不能进行赋值 , 不能写在赋值运算符的左边 , 错误写法!
+        
+        byte num = 30;
+        // num = num + 5;
+        // num = byte + int;
+        // num = int + int;
+        // num = int
+        // num = (byte) int
+        num += 5;
+        System.out.println(num); //35
+    }
+}
+```
+
+
+
+### 比较运算符
+
+- 大于 : >
+- 小于 : <
+- 大于等于 : >=
+- 小于等于 : <=
+- 相等 : ==  两个等号连写相等 , 一个等号代表的是赋值
+- 不相等 : !=
+
+注意事项 : 
+
+1. 比较运算符的结果一定是一个`boolean`值 , 成立就是true , 不成立就是false
+2. 如果进行判断 , 不能连着写 . 数学当中的写法 , 例如 : 1<x<3 , 程序当中[不允许]这种写法
+
+```java
+// 比较运算符
+public class Demo08Operator{
+    public static void main(String[] args){
+        System.out.println(10 > 5); // true
+        int num1 = 10;
+        int num2 = 20;
+        System.out.println(num1 < num2); // true
+        System.out.println(num2 >= 100); // false
+        System.out.println(num2 <= 100); // true
+        System.out.println(num2 <= 12);  // false
+        System.out.println(num2 <= 20);  // true
+        System.out.println("=================");
+        
+        System.out.println(10 == 10);  // true
+        System.out.println(20 != 25);  // true
+        System.out.println(20 != 20);  // false
+        
+        int x = 2;
+        // System.out.println(1<x<3); // 错误写法! 编译报错! 不能连着写
+        
+    }
+}
+```
+
+
+
+### 逻辑运算符
+
+- 与(并且)    &&    全都是true , 才是true ; 否则都是false
+- 或(或者)    ||     只要是有一个是true , 就是true ; 全都是false , 才是false
+- 非(取反)    !        本来是true , 变成false ; 本是false , 变成true
+
+与"&&" , 或"||" , 具有短路效果 : 如果根据左边已经可以判断得到最终结果 , 那么右边的代码将不再执行 , 从而节省一定的性能
+
+注意事项 :
+
+1. 逻辑运算符只能用于`boolean`值
+2. 与 , 或需要左右各自有一个`boolean`值 , 但是取反只要有唯一的一个`boolean`值即可
+3. 与 , 或两种运算符 , 如果有多个条件 , 可以连续写
+   - 两个条件 : 条件A && 条件B
+   - 多个条件 : 条件A && 条件B && 条件C
+   - TIPS :
+     - 对于 1<x<3的情况 , 应该拆成两个部分 , 然后使用与运算符连接起来
+
+```java
+// 逻辑运算符
+public class Demo09Logic{
+    public static void  main(String[] args){
+        System.out.println(true && false); // false
+        // true && true --> true
+        System.out.println(3 < 4 && 10 > 5); // true
+        System.out.println("==============");
+        
+        System.out.println(true || fasle); // true
+        System.out.println(true || true); // true
+        System.out.println(fasle || fasle); // fasle
+        System.out.println("==============");
+        
+        System.out.println(true); // true
+        System.out.println(!true); // fasle
+        System.out.println("==============");
+        
+        int a = 10;
+        // false && ...
+        System.out.println(3 > 4 && ++a < 100); // false
+        System.out.println(a); // 10
+        
+        int b = 20;
+        // true || ...
     }
 }
 ```
