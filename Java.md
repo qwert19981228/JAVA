@@ -393,8 +393,13 @@ public class Demo02Variable{
 
 1. 强制类型转换一般不推荐使用 , 因为可能发生精度损失 , 数据溢出
 2. byte/short/char这三种类型都可以发生数学运算 , 例如加法"+"
-3. byte/short/char这三种类型在运算的时候 , 都会被首先提升成为int类型 , 然后再计算
-4. boolean类型不能发生数据类型转换
+3. byte/short/char这三种类型在运算的时候 , 都会被首先提升成为`int`类型 , 然后再计算
+4. `boolean`类型不能发生数据类型转换
+5. 对于byte/short/char三种类型来说 , 如果右侧赋值的数值没有超过范围 , 那么`javac`编译器将会自动隐含地为我们补上一个(byte)(short)(char)
+   - 如果没有超过左侧的范围 , 编译器补上强转
+   - 如果右侧超过了左侧的范围. 那么编译器直接报错
+   - 在给变量进行赋值的时候 , 如果右侧的表达式当中全都是常量 , 没有任何变量 , 那么编译器`javac`将会直接将若干个常量表达式计算得到结果 .
+   - 一旦表达式中有变量参与 , 那么将不能进行这种优化了
 
 ```java
 // 自动类型转换
@@ -459,7 +464,12 @@ public class Demo02DataType{
         System.out.println(result2);
     }
 }
-
+// Notice1
+public class Demo12Notice{
+    public static void main(String[] args){
+        // 右侧确实是一个int数字 , 但是没有超过左侧的范围 , 就是正确的
+    }
+}
 ```
 
 ### ASCII 码
@@ -632,7 +642,7 @@ public class Demo05Plus{
 
 #### 使用格式
 
-使用格式 : 写在变量名称之前 , 或者写在变量名称之后 . 例如 : ++num , 也可以 num++
+使用格式 : 写在变量名称之前 , 或者写在变量名称之后 . 例如 : ++`num` , 也可以 `num`++
 
 #### 使用方式
 
@@ -645,7 +655,7 @@ public class Demo05Plus{
 
 使用区别 : 
 
-1. 在单独使用的时候 , 前 ++ 和 后 ++ 没有任何区别 , 也就是 : ++num; 和 num++; 是完全一样的
+1. 在单独使用的时候 , 前 ++ 和 后 ++ 没有任何区别 , 也就是 : ++`num`; 和 `num`++; 是完全一样的
 2. 在混合的时候 , 有重大区别.
    1. 如果是[前++] , 那么变量[立刻马上+1] , 然后拿着结果进行使用
    2. 如果是[后++] , 那么首先使用变量本来的数值 , 然后再让变量 +1
@@ -935,3 +945,48 @@ public static void 方法名称(){
 3. 方法定义好之后 , 不会执行的 . 如果想执行 , 一定进行方法的[调用]
 
 ### 调用
+
+调用方法的格式 : 方法名称();
+
+```java
+// 方法
+public class Demo11Method{
+    public static void main(String[] args){
+        farmer();
+        seller();
+        cook();
+        me();
+    }
+    // 农民
+    public static void farmer(){
+        System.out.println("播种");
+        System.out.println("浇水");
+        System.out.println("施肥");
+        System.out.println("除虫");
+        System.out.println("收割");
+        System.out.println("卖货");
+        System.out.println("===========");
+    }
+    // 商贩
+    public static void seller(){
+        System.out.println("运输");
+        System.out.println("标价");
+        System.out.println("吆喝");
+        System.out.println("卖货");
+        System.out.println("===========");
+    }
+    // 厨师
+    public static void cook(){
+        System.out.println("洗菜");
+        System.out.println("切菜");
+        System.out.println("炒菜");
+        System.out.println("装盘");
+        System.out.println("===========");
+    }
+    // 我
+    public static void me(){
+        System.out.println("吃");
+    }
+}
+```
+
