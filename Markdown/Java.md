@@ -1036,14 +1036,28 @@ public class Demo01Sequence{
 ### 判断语句
 
 1. ```java
+   // 格式
    if (关系表达式) {
        语句体;
    }
+// 例子
+   public class Demo02IF{
+    public static void main(String[] args){
+           System.out.println("今天天气不错 , 正在压马路 .... 突然发现一个快乐的地方:网吧");
+           int age = 16;
+           if(age >= 18){
+               System.out.println("进入网吧 , 开始high!");
+               System.out.println("遇到了一群猪队友");
+               System.out.println("感觉不爽 , 结账走人");
+           }
+           System.out.println("回家吃饭")
+       }
+   }
    ```
-
-   ![]()
-
-2. ```
+   
+   ![](E:\JAVA\Markdown\if 表达式1.png)
+   
+2. ```java
    
    ```
 
