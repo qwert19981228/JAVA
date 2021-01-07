@@ -1065,12 +1065,22 @@ public class Demo01Sequence{
        语句体2;
    }
    // 例子
+   public class Demo03IFElse{
+       public static void main(String[] args){
+           int num = 13;
+           if (num % 2 == 0){ // 如果除以二能够余数为0
+               System.out.println("偶数")
+           } else {
+               System.out.println("奇数")
+           }
+       }
+   }
    ```
    
    ![](E:\JAVA\Markdown\if else表达式2.png)
    
-3. ```
-   
+3. ```java
+   // 复合if ... elseif ... else 语句
    ```
 
    
