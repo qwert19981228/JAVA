@@ -1058,8 +1058,19 @@ public class Demo01Sequence{
    ![](E:\JAVA\Markdown\if 表达式1.png)
    
 2. ```java
+   // 标准if ... else 语句
+   if (关系表达式) {
+    语句体1;
+   } else{
+       语句体2;
+   }
+   // 例子
+   ```
+   
+   ![](E:\JAVA\Markdown\if else表达式2.png)
+   
+3. ```
    
    ```
 
    
-
