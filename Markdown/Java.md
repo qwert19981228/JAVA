@@ -1088,12 +1088,147 @@ public class Demo01Sequence{
    } else {
        执行语句n+1;
    }
-   // 例子
+   // 例子1
    // x 和 y的关系满足如下:
    // 如果x >= 3 , 那么y = 2x + 1;
    // 如果-1 < x < 3 , 那么y = 2x;
    // 如果x <= -1 , 那么y = 2x - 1;
-   public class Demo04
+   public class Demo04IfElseExt{
+       public static void main(String[] args){
+        int x = 10;
+           int y;
+           if (x >= 3) {
+               y = 2*x + 1;
+           }else if(-1 < x && x < 3){
+               y = 2*x;
+           }else{
+               y = 2*x - 1; 
+           }
+       }
+       System.out.println("结果是: " + y);
+   }
+   // 例子2
+   // 分数
+   public class Demo05IfElsePractise{
+       public static void main(String[] args){
+           int score = 120;
+           if (score >= 90 && score <= 100){
+               System.out.println("优秀");
+           }else if(score >= 80 && score <= 90){
+               System.out.println("好");
+           }else if(score >= 70 && score <= 60){
+               System.out.println("良");
+           }else if(score >= 60 && score <= 50){
+               System.out.println("及格")
+           }else if(score >= 0 && score <= 60){
+               System.out.println("不及格")
+           }else{
+               System.out.println("数据错误")
+           }
+       }
+   }
    ```
-
    
+   ```java
+   // 题目: 使用三元运算符和标准的if-else语句分别实现:取两个数字当中的最大值
+   public class Demo06MaxNum{
+       public static void main(String[] args){
+           int a = 10;
+           int b = 20;
+           // 三元运算符
+           int max = a > b ? a : b;
+           // if-else 表达式
+           if (a > b){
+               max = a;
+           }else {
+               max = b;
+           }
+           System.out.println(max);
+       }
+   }
+   ```
+   
+   
+
+### 选择语句
+
+```java
+// 表达式
+switch(表达式){
+    case 常量值1:
+        语句体1;
+        break;
+    case 常量值2:
+        语句体2;
+        break;
+        ...
+    default:
+        语句体n+1;
+        break;
+}
+// 例子
+public class Demo07Switch{
+    public static void main(String[] args){
+        int num = 1123;
+        switch (num){
+            case 1:
+                System.out.println("星期一");
+                break;
+            case 2:
+                System.out.println("星期二");
+                break;
+            case 3:
+                System.out.println("星期三");
+            	break;
+            case 4:
+                System.out.println("星期四");
+                break;
+            case 5:
+                System.out.println("星期五");
+                break;
+            case 6:
+                System.out.println("星期六");
+                break;
+            case 7:
+                System.out.println("星期日");
+                break;
+            default:
+                System.out.println("数据错误");
+                break;
+        }
+    }
+}
+```
+
+![](E:\JAVA\Markdown\switch表达式.png)
+
+#### 注意事项
+
+switch语句使用的注意事项:
+
+1. 多个`case` 后面的数值不可以重复
+2. switch后面小括号当中只能是下列数据类型
+   - 基本数据类型 : byte/short/char/int
+   - 引用数据类型 : String字符串 , enum枚举
+3. switch语句格式可以很灵活 : 前后顺序可以颠倒 , 且break语句可省略 , "匹配哪一个case就从哪一个位置向下执行 , 直到遇到了break或者整体结束为止"
+
+```java
+// switch使用注意
+public class Demo08SwitchNotice{
+    public static void main(String[] args){
+        int num = 1;
+        switch(num){
+            case 1:
+                System.out.println("AAA");
+                break;
+            case 1:
+                System.out.println("BBB");
+                break;
+            default:
+                System.out.println("CCC");
+                break;
+        }
+    }
+}
+```
+
