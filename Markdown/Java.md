@@ -1081,6 +1081,19 @@ public class Demo01Sequence{
    
 3. ```java
    // 复合if ... elseif ... else 语句
+   if (判断条件1) {
+       执行语句1;
+   } else if (判断条件2){
+       执行语句2;
+   } else {
+       执行语句n+1;
+   }
+   // 例子
+   // x 和 y的关系满足如下:
+   // 如果x >= 3 , 那么y = 2x + 1;
+   // 如果-1 < x < 3 , 那么y = 2x;
+   // 如果x <= -1 , 那么y = 2x - 1;
+   public class Demo04
    ```
 
    
