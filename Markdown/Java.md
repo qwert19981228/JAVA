@@ -1488,7 +1488,14 @@ while (true){
 // 死循环后面无法跟代码
 ```
 
-```
-
+```java
+// 死循环
+public class Demo16DeadLoop{
+    public static void main(String[] args){
+        while (true){
+            System.out.println("Study Java");
+        }
+    }
+}
 ```
 
