@@ -1269,3 +1269,140 @@ for (初始化表达式①; 布尔表达式②; 步进表达式④){
 ③具体执行的语句
 
 ④循环后循环条件所涉及变量的变化情况                
+
+```java
+// 例子
+public class Demo09For{
+    public static void main(String[] args){
+        for (int i = 1; i <= 100; i++){
+            System.out.println("我错啦!原谅我吧")
+        }
+        System.out.println("程序停止");
+    } 
+}
+```
+
+### while循环
+
+```java
+// 标准格式:
+while (条件判断){
+    循环体;
+}
+// 扩展语句:
+初始化语句;
+while (条件判断){
+    循环体;
+    步进语句;
+}
+```
+
+#### 执行流程
+
+执行流程:
+
+执行顺序: ①②③④ > ②③④ > ②③④ ... ②不满足为止
+
+①负责完成循环变量初始化
+
+②负责判断是否满足循环条件 , 不满足则跳出循环
+
+③具体执行的语句
+
+④循环后 , 循环变量的变化情况
+
+```java
+// 例子
+public class Demo10While{
+    public static void main(String[] args){
+        int i = 1;
+        while (i <= 100){
+            System.out.println("我错啦!原谅我吧"+i);
+            i++;
+        }
+    }
+}
+```
+
+### do-while循环
+
+```java
+// 格式
+do {
+    循环体;
+}while (条件判断);
+// 扩展格式
+初始化语句;
+do{
+    循环体;
+    步进语句;
+}while (条件判断);
+
+// 例子
+public class Demo11DoWhile{
+    public static void main(String[] args){
+        int i = 1;
+        do {
+            System.out.println("原谅你啦!地上怪凉的"+i);
+            i++;
+        } while (i <= 100);
+    }
+}
+```
+
+### 三种循环的区别
+
+区别 : 
+
+1. 如果条件判断从来没有满足过 , 那么for循环和while循环将会执行0次 , 但是do-while循环会执行至少一次
+2. for循环的变量在小括号中定义, 只有循环内部才可以使用 . while循环和do-while循环初始化语句本来就在外面 , 所以出来循环之后还可以使用
+
+```java
+// 题目 : 求出1-100之间的偶数和
+public class Demo12HunderdSum{
+    public static void main(String[] args){
+        wsh();
+        fsh();
+        dwsh();
+    }
+    
+    // while循环求偶数和
+    public static void wsh(){
+        // 初始化数值
+        int i = 1, sum = 0;
+        // 循环开始
+        while(i <= 100){
+            // 偶数判断
+            if(i % 2 == 0){
+                sum += i;
+            }
+            i++;
+        }
+        System.out.println("while结果是:" + sum);
+    }
+    
+    // for循环求偶数和
+    public static void fsh(){
+        int sum = 0;
+        for (int i = 1; i <= 100 ; i++){
+            if (i % 2 == 0){
+                sum += i;
+            }
+        }
+        System.out.println("for结果是:" + sum)
+    }
+    
+    //do-while循环求偶数和
+    public static void dwsh(){
+        int sum = 0, i = 1;
+        do{
+            if (i % 2 == 0){
+                sum += i;
+            }
+            i++;
+        } while (i <= 100);
+        System.out.println("do-while结果是: " + sum); 
+    }
+}
+```
+
