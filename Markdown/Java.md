@@ -1221,9 +1221,9 @@ public class Demo08SwitchNotice{
             case 1:
                 System.out.println("AAA");
                 break;
-            case 1:
-                System.out.println("BBB");
-                break;
+            // case 1:
+            //     System.out.println("BBB");
+            //     break;
             default:
                 System.out.println("CCC");
                 break;
@@ -1232,3 +1232,40 @@ public class Demo08SwitchNotice{
 }
 ```
 
+
+
+
+
+## 循环
+
+### 组成
+
+循环结构的基本组成部分 , 一般可以分为四个部分:
+
+1. 初始化语句 : 在循环开始最初执行 , 而且只做唯一一次
+2. 条件判断 : 如果成立 , 则循环继续 ; 如果不成立 , 则循环退出
+3. 循环体 : 重复要做的事情内容 , 若干行语句
+4. 步进语句 : 每次循环之后都要进行的扫尾工作
+
+### for循环
+
+```java
+// 格式
+for (初始化表达式①; 布尔表达式②; 步进表达式④){
+    循环体③;
+}
+```
+
+#### 执行流程
+
+执行流程 :
+
+顺序 : ①②③④ > ②③④ > ②③④ > .... ②不满足为止
+
+①负责完成循环变量初始化
+
+②负责判断是否满足循环条件 , 不满足则跳出循环
+
+③具体执行的语句
+
+④循环后循环条件所涉及变量的变化情况                
