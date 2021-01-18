@@ -1499,3 +1499,34 @@ public class Demo16DeadLoop{
 }
 ```
 
+### 嵌套循环
+
+#### 定义
+
+定义 : 一个循环的循环体是另一个循环 , 比如for循环里面还有一个for循环 , 就是嵌套循环
+
+总共的循环次数 = 外循环 * 内循环次数
+
+```java
+// 嵌套循环输出时间
+public class Demo17LoopHourAndMinute{
+    public static void main(String[] args){
+        // 外层控制小时
+        for (int hour = 0;hour < 24;hour++){
+            // 控制分钟
+            for (int minute = 0;minute < 60;minute++){
+                for (int second = 0;second < 60;second++){
+                   System.out.println(hour+"时"+minute+"分"+second+"秒");
+                }
+            }
+        }
+    }
+}
+```
+
+## IDEA常用快捷键
+
+- Alt + Enter				导入包 , 自动修正代码
+- Ctrl + Y                      删除光标所在行
+- Ctrl + D                     复制光标所在行 , 插入光标位置下面
+- Ctrl + Alt + L             格式化代码
