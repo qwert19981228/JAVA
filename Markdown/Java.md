@@ -1389,7 +1389,7 @@ public class Demo12HunderdSum{
                 sum += i;
             }
         }
-        System.out.println("for结果是:" + sum)
+        System.out.println("for结果是:" + sum);
     }
     
     //do-while循环求偶数和
@@ -1404,5 +1404,91 @@ public class Demo12HunderdSum{
         System.out.println("do-while结果是: " + sum); 
     }
 }
+
+// 区别
+public class Demo13LoopDifference{
+    public static void main(String[] args){
+        for (int i = 1;i<=0;i++){
+            System.out.println("hello");
+        }
+        // System.out.println(i); // 这一行是错误写法!因为变量i定义在for循环小括号内 , 只有for循环自己才能用
+        System.out.println("===========");
+        
+        int i = 1;
+        do{
+            System.out.println("world");
+            i++;
+        }while(i < 0);
+        // 现在已经超出了do-while循环的范围 , 我们仍然可以使用变量i
+        System.out.println(i);
+    }
+}
+```
+
+### break关键字
+
+#### 用法
+
+用法: 
+
+1. 可以用在switch语句当中 , 一旦执行 , 整个switch语句立刻结束
+2. 还可以用在循环语句当中 , 一旦执行 , 整个循环语句立刻结束 , 打断循环 . 凡是次数确定的场景多用for循环;否则多用while循环
+
+```java
+// break
+public class Demo14Break{
+    public static void main(String[] args){
+        for (int i = 1;i <= 10;i++){
+            // 如果希望从第四次开始 , 后续全都不要了 , 就要打断循环
+            if (i == 4){  // 如果当前是第四次
+                break;  // 那么就打断整个循环
+            }
+            System.out.println("hello" + i)
+        }
+    }
+}
+```
+
+### continue关键字
+
+#### 用法
+
+用法 : 
+
+另一种循环控制语句是continue关键字
+
+一旦执行 , 立刻跳过当前次循环剩余内容 , 马上开始下一次循环
+
+```java
+// continue
+public class Demo15Continue{
+    public static void main(String[] args){
+        for (int i = 1; i <= 10;i++){
+            if (i == 4){
+                continue; // 那么跳过当前次循环 , 马上开始下一次
+            }
+            System.out.println(i + "层到了")
+        }
+    }
+}
+```
+
+### 死循环
+
+#### 定义
+
+定义 : 永远停不下来的循环
+
+#### 格式
+
+```java
+while (true){
+	循环体;
+}
+// 死循环后面无法跟代码
+```
+
+```
+
 ```
 
