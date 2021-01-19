@@ -14,29 +14,21 @@ public class Demo02MethodOverloadSame {
     }
     public static boolean isSame(byte a , byte b){
         System.out.println("执行byte");
-        boolean same;
-        same = a == b;
-        return same;
+        return a == b;
     }
 
     public static boolean isSame(short a , short b){
         System.out.println("执行short");
-        boolean same;
-        same = a == b;
-        return same;
+        return a == b;
     }
 
     public static boolean isSame(int a , int b){
         System.out.println("执行int");
-        boolean same;
-        same = a == b;
-        return same;
+        return a == b;
     }
 
     public static boolean isSame(long a , long b){
         System.out.println("执行long");
-        boolean same;
-        same = a == b;
-        return same;
+        return a == b;
     }
 }
