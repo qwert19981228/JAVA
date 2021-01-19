@@ -1641,6 +1641,8 @@ public class Demo02MethodDefine{
 }
 ```
 
+![](E:\JAVA\Markdown\方法的调用流程图解.png)
+
 ### 方法的参数
 
 #### 有无参数的比较
@@ -1677,6 +1679,8 @@ public class Demo03MethodParam{
 
 但是对于无返回值的的方法 , 只能使用单独调用 , 不能使用打印调用或者赋值调用
 
+![](E:\JAVA\Markdown\有无返回值的对比流程图.png)
+
 ```java
 // 有无返回值
 public class Demo04MethodReturn{
@@ -1692,6 +1696,15 @@ public class Demo04MethodReturn{
         
         System.out.println(getsum(2,3)); // 正确写法
         getsum(4,5); // 正确写法 , 但是返回值
+        System.out.println("===============");
+        
+        // 对于void没有返回值的方法 , 只能单独 , 不能打印或者赋值
+//        System.out.println(printsum(2,3));
+//        System.out.println(void);
+
+//        int num2 = printsum(10,20); // 错误写法
+//        int num3 = void;
+//        void num4 = void;
     }
     // 我是一个方法 , 我负责两个字相加
     // 我有返回值int , 谁调用我 , 我就把计算结果告诉谁
@@ -1705,6 +1718,50 @@ public class Demo04MethodReturn{
         int result = a + b;
         System.out.println("结果是: " + result);
     }
+}
+```
+
+### 方法例题
+
+```java
+// 题目1: 定义一个方法 , 用来判断两个数字是否相同
+public class Demo01MethodSame {
+    public static void main(String[] args){
+        System.out.println(isSame(10,20));
+        System.out.println(isSame(10,10));
+    }
+    
+    /*
+    	三要素 : 
+    		返回值类型: boolean
+    		方法名称: isSame
+    		参数列表: int a , int b
+    */
+    public static boolean isSame(int a,int b){
+//        boolean same;
+//        if (a == b){
+//            same = true;
+//        }else{
+//            same = false;
+//        }
+//        same = a == b ? true : false;
+//        boolean same = a == b;
+//        return same;
+        return a == b;
+    }
+}
+```
+
+```java
+// 题目2: 定义一个方法 , 用来求出1~100之间所有数字的和值
+public class Demo02MethodSum{
+    public static void main(String[] args){
+        System.out.println("结果是: " + getSum());
+    }
+    /*三要素:
+    	返回值: 有返回值 , 计算结果是一个int数字
+    	
+    */
 }
 ```
 
