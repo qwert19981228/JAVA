@@ -1524,9 +1524,172 @@ public class Demo17LoopHourAndMinute{
 }
 ```
 
+
+
+
+
 ## IDEA常用快捷键
 
-- Alt + Enter				导入包 , 自动修正代码
-- Ctrl + Y                      删除光标所在行
-- Ctrl + D                     复制光标所在行 , 插入光标位置下面
-- Ctrl + Alt + L             格式化代码
+- Alt + Enter				  	   导入包 , 自动修正代码
+- Ctrl + Y                               删除光标所在行
+- Ctrl + D                              复制光标所在行 , 插入光标位置下面
+- Ctrl + Alt + L                      格式化代码
+- Ctrl + /                               单行注释
+- Ctrl + Shift + /                   选中代码注释 , 多行注释
+- Alt + Ins                             自动生成代码 , toString , get , set 等方法
+- Alt + Shift + 上下箭头      移动当前代码行
+
+```java
+public class HelloWorld {
+    public static void main(String[] args) {
+//        System.out.println("Hello,World!!!");
+        System.out.println("Hello,World!!!");
+        /*System.out.println("Hello,World!!!");*/
+    }
+}
+```
+
+
+
+## 方法
+
+### 定义
+
+#### 方法
+
+定义 : 方法其实就是若干语句的集合
+
+#### 参数
+
+定义 : 就是进入方法的数据
+
+#### 返回值
+
+定义 : 就是从方法中出来的数据
+
+### 格式
+
+```java
+// 定义方法的完整格式
+修饰符 返回值类型 方法名称 (参数类型 参数名称 , ... ){
+    方法体;
+    return 返回值;
+}
+```
+
+- 修饰符 : 现阶段的固定用法 , public  static
+- 返回值类型 : 也就是方法最终产生的数据结果是什么类型
+- 方法名称 : 方法的名字 , 规则和变量一样 , 小驼峰式
+- 参数类型 : 进入方法的数据是什么类型
+- 参数名称 : 进入方法的数据对应的变量名称
+  - PS : 参数如果有多个 , 使用逗号进行分隔
+- 方法体 : 方法需要做的事情 , 若干行代码
+- return : 两个作用 , 第一停止当前方法 , 第二将后面的返回值还给调用处
+- 返回值 : 也就是方法执行后最终产生的数据结果
+
+注意事项 :
+
+return 后面的返回值 , 必须和方法名称前面"返回值类型"保持对应
+
+```java
+// 例子
+public class Demo01Method{
+    public static void main(String[] args){
+        printMethod();
+    }
+    public static void printMethod(){
+        for (int j = 0; j < 5; j++){
+            System.out.println("*");
+        }
+        System.out.println();
+    }
+}
+```
+
+### 方法的调用
+
+#### 三种调用方式
+
+方式 : 
+
+1. 单独调用 : 方法名称(参数);
+2. 打印调用 : System.out.println(方法名称 (参数));
+3. 赋值调用 : 数据类型 变量名称 = 方法名称 (参数);
+
+注意 :
+
+此前学习的方法 , 返回值类型为void , 这个方法只能够单独调用 , 不能进行打印调用或者赋值调用
+
+```java
+// 方法的调用
+/*
+方法其实就是若干语句的功能集合:
+方法好比是一个工厂
+*/
+public class Demo02MethodDefine{
+    public static void main(String[] args){
+        // 打印调用
+        System.out.println(sum(10,20));
+        // 赋值调用
+        int s = sum(20,30);
+        System.out.println(s);
+    }
+    public static int sum(int a , int b){
+        int result = a+b;
+        return result;
+    }
+}
+```
+
+### 方法的参数
+
+#### 有无参数的比较
+
+- 有参数 : 小括号当中有内容 , 当一个方法需要一些数据条件 , 才能完成任务的时候 , 就是有参数
+- 无参数 : 小括号当中留空 , 一个方法不需要任何数据条件 , 自己就能独立完成任务 , 就是无参数
+
+```java
+// 有无参数
+public class Demo03MethodParam{
+    public static void main(String[] args){
+        method1(13,15);
+        method2();
+    }
+    public static void method1(int a , int b){
+        int result = a * b;
+        System.out.println("结果是: " + result);
+    }
+    public static method2(){
+        for (int i = 0; i < 10;i++){
+            System.out.println("hello,world" + i);
+        }
+    }
+}
+```
+
+### 方法的返回值
+
+#### 有无返回值注意事项
+
+注意事项 : 
+
+对于有返回值的方法 , 可以使用单独调用 , 打印调用或者赋值调用
+
+但是对于无返回值的的方法 , 只能使用单独调用 , 不能使用打印调用或者赋值调用
+
+```java
+// 有无返回值
+public class Demo04MethodReturn{
+    public static void main(String[] args){
+        // 我是main方法 , 我来调用你
+        // 我调用你
+    }
+    // 我是一个方法 , 我负责两个字相加
+    // 我有返回值int , 谁调用我 , 我就把计算结果告诉谁
+    public static int getsum(int a,int b){
+        int result = a + b;
+        return result;
+    }
+}
+```
+
