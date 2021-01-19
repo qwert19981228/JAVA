@@ -1682,13 +1682,28 @@ public class Demo03MethodParam{
 public class Demo04MethodReturn{
     public static void main(String[] args){
         // 我是main方法 , 我来调用你
-        // 我调用你
+        // 我调用你 , 你来帮我计算一下 , 算完了之后 , 把结果告诉我的num变量
+        int num = getsum(10,23);
+        System.out.println("返回值是 : " + num);
+        System.out.println("===============");
+        
+        printsum(10,20);
+        System.out.println("===============");
+        
+        System.out.println(getsum(2,3)); // 正确写法
+        getsum(4,5); // 正确写法 , 但是返回值
     }
     // 我是一个方法 , 我负责两个字相加
     // 我有返回值int , 谁调用我 , 我就把计算结果告诉谁
     public static int getsum(int a,int b){
         int result = a + b;
         return result;
+    }
+    // 我是一个方法 , 我负责两个数字相加
+    // 我没有返回值 , 不会把结果告诉任何人 , 而是我自己进行打印输出
+    public static void printsum(int a, int b){
+        int result = a + b;
+        System.out.println("结果是: " + result);
     }
 }
 ```
