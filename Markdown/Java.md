@@ -2022,9 +2022,94 @@ public class Demo01Array {
 如果不确定数组当中的具体内容 , 用动态初始化 , 否则 , 已经确定了具体内容 , 用静态初始化
 
 ```java
+// 标准格式
 public class Demo02Array{
     public static void main(String[] args){
-        // 直接创建一个数组 , 里面装的全都是int数字
+        // 直接创建一个数组 , 里面装的全都是int数字 , 具体为 5 15 25
+        int[] arrayA = new int[]{5 , 15 ,25};
+        
+        // 创建一个数组 , 用来装字符串: "Hello" , "World" , "Java"
+        String[] arrayB = new String[]{"Hello" , "World" , "Java"};
+    }
+}
+
+// 省略格式
+public class Demo03Array{
+    public static void main(String[] args){
+        // 省略格式的静态初始化
+        int[] arrayA = {10 , 20 ,30};
+        
+        // 静态初始化的标准格式 , 可以拆分成为两个步骤
+        int[] arrayB;
+        arrayB = new int[]{10 , 20 ,30};
+        
+        // 动态初始化也可以拆分成为两个步骤
+        int[] arrayC;
+        arrayC = new int[3];
+        
+        // 静态初始化的省略格式 , 不能拆分成为两个步骤
+//        int[] arrayD;                 // 错误写法
+//        arrayD = { 10 , 20 ,30};
+    }
+}
+```
+
+
+
+### 索引与内存地址
+
+直接打印数组名称 , 得到的是数组对应的 : 内存地址哈希值
+
+访问数组元素的格式 : 数组名称[ 索引值 ]
+
+索引值 : 就是一个int 数字 , 代表数组当中元素的编号
+
+[ 注意 ] : 索引值从0开始 , 一直到"数组的长度-1为止"
+
+```java
+public class Demo04ArrayUse {
+    public static void main(String[] args){
+        // 静态初始化的省略格式
+        int[] array = {10 , 20 ,30};
+        System.out.println(array); // [I@6d03e736
+        
+        // 直接打印数组当中的元素
+        System.out.println(array[0]);
+        System.out.println(array[1]);
+        System.out.println(array[2]);
+        
+        // 也可以将数组当中的某一个单个元素 , 赋值交给变量
+        int num = array[1];
+        System.out.println(num);
+    }
+}
+```
+
+
+
+### 默认值
+
+使用动态初始化数组的时候 , 其中一个元素将会自动拥有一个默认值 . 
+
+规则如下 : 
+
+- 如果是整数类型 , 那么默认为0
+- 如果是浮点类型 , 那么默认为0.0
+- 如果是字符类型 , 那么默认为'\u0000'
+- 如果是布尔类型 , 那么默认为false
+- 如果是引用类型 , 那么默认为null
+
+```java
+public class Demo05ArrayUse{
+    public static void main(String[] args){
+        // 动态初始化一个数组
+        int[] array = new int[3];
+        
+        System.out.println(array); // 内存地址
+        System.out.println(array[1]); // 默认值
+        
+        array[1] = 132; // 赋值
+        System.out.println(array[1]);
     }
 }
 ```
