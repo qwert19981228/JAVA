@@ -2356,7 +2356,7 @@ public class Demo06ArrayReverse{
 
 
 
-### 数组作方法参数
+### 数组作方法的参数
 
 当调用方法的时候 , 向方法的小括号进行传参 , 传递进去的其实是数组的地址值
 
@@ -2364,7 +2364,9 @@ public class Demo06ArrayReverse{
 public class Demo01ArrayParam{
     public static void main(String[] args){
         int[] array = {10,20,30,40,50,60};
-        
+ 		printArray(array);
+        System.out.println("============");
+        printArray(array);
     }
     /*
     三要素 :
@@ -2376,8 +2378,44 @@ public class Demo01ArrayParam{
         System.out.println("printArray方法收到的参数是: ");
         System.out.println(array);
         for(int i = 0;i < array.length;i++){
-            
+            System.out.println(array[i]);
         }
+    }
+}
+```
+
+### 数组作方法的返回值
+
+一个方法可以有0,1,多个参数 , 但是只能有0或者1个返回值 , 不能有多个返回值
+
+如果希望一个方法当中产生了多个结果数据进行返回
+
+使用一个数组进行返回值类型即可
+
+任何数据类型都能作为方法的参数类型 , 或者返回值类型
+
+数组作为方法的参数 , 传递进去的其实是数组的地址值
+
+数组作为方法的返回值 , 返回的其实也是数组的地址值
+
+```java
+public class Demo02ArrayReturn{
+    public static void main(String[] args){
+        int[] result = calculate(10,20,30);
+        System.out.println("main方法接收到的返回值数组是: ");
+        System.out.println(result);
+        System.out.println("总和: " + result[0]);
+        System.out.println("平均数: " + result[1]);
+    }
+    public static int[] calculate(int a,int b,int c){
+        int sum = a + b + c;
+        int avg = sum / 3;
+        // 两个结果都希望进行返回
+        // 需要一个数组 , 数组可以保存多个结果
+        int[] array = {sum , avg};
+        System.out.println("calculate方法接收到的返回值数组是: ");
+        System.out.println(array);
+        return array;
     }
 }
 ```
