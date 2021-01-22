@@ -2188,3 +2188,37 @@ public class Demo03ArraySame {
 
 
 
+### 索引
+
+ 数组的索引编号从0开始 , 一直到"数组的长度为-1"为止
+
+#### 数组索引越界异常
+
+如果访问数组元素的时候 , 索引编号并不存在 , 那么将会发生数组索引越界异常
+
+`ArrayIndexOutOfBoundsException`
+
+- 原因 : 索引编号写错了
+- 解决 : 修改成为存在的正确索引编导
+
+```java
+public class Demo01ArrayIndex{
+    public static void main(String[] args){
+		int[] array = new int[]{15 , 25 , 35};
+        System.out.println(array[0]);
+        System.out.println(array[1]);
+        System.out.println(array[2]);
+        // System.out.println(array[3]);
+    }
+}
+```
+
+#### 空指针异常
+
+所有的引用类型变量 , 都可以赋值为一个null值 , 但是代表其中什么都没有
+
+数组必须进行new初始化才能使用其中的元素
+
+如果只是赋值了一个null , 没有进行new创建
+
+那么将会发生空指针异常 `NullPointerException`
