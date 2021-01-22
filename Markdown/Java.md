@@ -2222,3 +2222,134 @@ public class Demo01ArrayIndex{
 如果只是赋值了一个null , 没有进行new创建
 
 那么将会发生空指针异常 `NullPointerException`
+
+```java
+public class Demo02ArrayNull{
+    public static void main(String[] args){
+        int[] array = null;
+        array = new int[3];
+        System.out.println(array[0]);
+    }
+}
+```
+
+
+
+### 数组的长度
+
+如何获取数组的长度: 数组名称 . length
+
+将会得到一个int数字 , 代表数组的长度
+
+数组一旦创建 , 程序运行期间 , 长度不可改变
+
+```java
+public class Demo03ArrayLength{
+    public static void main(String[] args){
+        int[] arrayA = new int[3];
+        
+        int[] arrayB = new int[]{12,234,5,4356,1,234,6,7,81,123,6578,363,2342};
+        int len = arrayB.length;
+        System.out.println("arrayB的数组长度是: " + len);
+        System.out.println("========================");
+        
+        int[] arrayC = new int[3];
+        System.out.println(arrayC);
+        arrayC = new int[5];
+        System.out.println(arrayC); // 内存地址发生改变
+    }
+}
+```
+
+
+
+### 遍历数组
+
+说的就是对数组当中的每一个元素进行逐一处理 , 默认的处理方式就是打印输出
+
+```java
+public class Demo04Array{
+    public static void main(String[] args){
+        int[] array = new int[]{123,234,345,456,678,789,890};
+        
+        // 首先使用原始方式
+        System.out.println(array[0]);
+        System.out.println(array[1]);
+        System.out.println(array[2]);
+        System.out.println(array[3]);
+        System.out.println(array[4]);
+        System.out.println(array[5]);
+        System.out.println(array[6]);
+        System.out.println("======");
+        
+        // 使用循环 , 次数其实就是数组的长度
+        for (int i = 0;i < array.length; i++){
+            System.out.println(array[i]);
+        }
+        // 数组名称 . fori
+        for (int i = 0;i < array.length; i++){
+            System.out.println(array[i]);
+        }
+    }
+}
+
+// 数组求最大值
+public class Demo05ArrayMax{
+    public static void main(String[] args){
+        int[] array = {5,15,30,20,10000,-20,-30};
+        
+        int max = array[0];
+        for (i = 1;i < array.length;i++){
+            if(array[i] > max){
+                max = array[i];
+            }
+        }
+        System.out.println("最大值: " + max);
+        
+        int min = array[0];
+        for (i = 1;i < array.length;i++){
+            if(array[i] < max){
+                max = array[i];
+            }
+        }
+        System.out.println("最小值: " + min);
+    }
+}
+
+// 数组元素反转
+public class Demo06ArrayReverse{
+    public static void main(String[] args){
+        int[] array = {2,3,4,5,6,7,8,1,2};
+        
+        // 遍历数组本来的样子
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(array[i]);
+        }
+        System.out.println("===============");
+        
+        /*
+        初始化语句 : int min = 0 , max = array.length-1
+        条件判断 : min < max
+        步进表达式 : min++ , max--
+        循环体 : 用第三个变量倒手
+        */
+       	for(int min = 0,max = array.length-1;min<max;min++,max--){
+           int temp = array[min];
+           array[min] = array[max];
+           array[max] = temp;
+       	}
+       	// 再次打印遍历输出数组后来的样子
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(array[i]);
+        }
+    }
+}
+```
+
+反转示意图 : 
+
+![](E:\JAVA\Markdown\数组元素反转示意图.png)
+
+数组长度不可改变 : 
+
+![](E:\JAVA\Markdown\数组长度不可改变.png)
