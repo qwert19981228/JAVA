@@ -2114,3 +2114,71 @@ public class Demo05ArrayUse{
 }
 ```
 
+
+
+### 赋值
+
+数据名称[ 索引值 ] = 值 ;
+
+```java
+public class Demo03ArraySame {
+    public static void main(String[] args) {
+        int[] arrayA = new int[3];
+        System.out.println(arrayA);      // 地址值
+        System.out.println(arrayA[0]);   // 0
+        System.out.println(arrayA[1]);   // 0
+        System.out.println(arrayA[2]);   // 0
+        System.out.println("==========");
+
+        arrayA[1] = 10;
+        arrayA[2] = 20;
+        System.out.println(arrayA);      // 地址值
+        System.out.println(arrayA[0]);   // 0
+        System.out.println(arrayA[1]);   // 10
+        System.out.println(arrayA[2]);   // 20
+        System.out.println("==========");
+
+        // 将arrayA数组的地址值 赋给arrayB数组
+        int[] arrayB = arrayA;
+        System.out.println(arrayB);      // 地址值
+        System.out.println(arrayB[0]);   // 0
+        System.out.println(arrayB[1]);   // 10
+        System.out.println(arrayB[2]);   // 20
+        System.out.println("==========");
+
+        arrayB[1] = 100;
+        arrayB[2] = 200;
+        System.out.println(arrayB);      // 地址值
+        System.out.println(arrayB[0]);   // 0
+        System.out.println(arrayB[1]);   // 100
+        System.out.println(arrayB[2]);   // 200
+        System.out.println(arrayA[2]);   // 200
+        System.out.println("==========");
+
+    }
+}
+
+```
+
+
+
+### Java中的内存划分
+
+内存划分 : 
+
+1. 栈 : 存放的都是方法中的局部变量 , 方法的运行一定要在栈当中
+2. 堆 : 凡是new出来的东西 , 都在堆当中
+3. 方法区 : 存储 .class 相关信息 , 包含方法的信息
+4. 本地方法栈 : 与操作系统相关
+5. 寄存器 : 与CPU相关
+
+![](E:\JAVA\Markdown\Java中的内存划分.png)
+
+#### 一个数组的内存图
+
+![](E:\JAVA\Markdown\一个数组的内存图.png)
+
+#### 两个数组的内存图
+
+![](E:\JAVA\Markdown\两个数组的内存图.png)
+
