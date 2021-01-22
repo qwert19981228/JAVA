@@ -2182,3 +2182,9 @@ public class Demo03ArraySame {
 
 ![](E:\JAVA\Markdown\两个数组的内存图.png)
 
+#### 两个引用指向同一个数组
+
+![](E:\JAVA\Markdown\两个引用指向同一个数组.png)
+
+
+
