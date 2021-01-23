@@ -2420,3 +2420,97 @@ public class Demo02ArrayReturn{
 }
 ```
 
+### 打印数组
+
+```java
+import java.util.Arrays;
+public class Demo01PrintArray{
+    public static void main(String[] args){
+        int[] array = new int[]{10,20,30,40,50};
+        
+        // 要求打印格式为: [10,20,30,40,50]
+        System.out.print("[");
+        for(int i = 0;i < array.length;i++){
+            if(i == array.length-1){
+                System.out.println(array[i] + "]");
+            }else{
+                System.out.print(array[i] + ", ");               
+            }
+        }
+        System.out.println("=============");
+    }
+    
+    // 使用面向对象
+    // 找一个JDK给我们提供好的Arrays类
+    // 其中一个toString方法 , 直接就能把数组变成想要的格式的字符串
+    System.out.println(Arrays.toString(array));
+}
+```
+
+
+
+## 面向对象
+
+面向过程 : 当需要实现一个功能的时候 , 每一个具体的步骤都要亲力亲为
+
+面向对象 : 当需要实现一个功能的时候 , 不关心具体的步骤 , 而是找一个已经具有该功能的方法
+
+### 特点
+
+1. 封装性
+2. 继承性
+3. 多态性
+
+### 类与对象
+
+类 :
+
+- 定义 : 是一组相关属性和行为的集合 , 是对一类事物的描述 , 是抽象的
+
+对象 :
+
+- 定义 : 是一类事物的具体体现 , 对象是类的一个实例 , 必然具备该类事物的属性和行为 , 是具体的
+
+类是对象的模板 , 对象是类的实体
+
+定义类 : 就是定义类的成员 , 包括成员变量和成员方法
+
+成员变量 : 与以前定义变量几乎是一样 , 只不过位置发生了改变 , 在类中 , 方法外
+
+成员方法 : 与以前定义方法几乎是一样 , 只不过把static去掉
+
+注意事项 :
+
+1. 成员变量是直接定义在类当中的 , 在方法外边
+2. 成员方法不要写static关键字
+
+```java
+// Student类
+public class Student{
+    // 成员变量
+    String name; // 姓名
+    int age; // 年龄
+    
+    // 成员方法
+    public void eat(){
+        System.out.println("吃饭饭!");
+    }
+    public void sleep(){
+        System.out.println("睡觉觉!");
+    }
+    public void study(){
+        System.out.println("学习习!");
+    }
+}
+```
+
+#### 类的使用
+
+通常情况下 , 一个类并不能直接使用 , 需要根据类创建一个对象 , 才能使用
+
+1. 导包 , 也就是指出需要使用的类 , 在什么位置
+   - import  包名称 . 类名称 ;
+   - 对于和当前类属于同一个包的情况 , 可以省略导包语句不写
+2. 创建 , 格式
+   - 类名称  对象名  =  new  类名称( );
+3. 使用 , 分为两种情况
