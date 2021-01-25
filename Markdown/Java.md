@@ -2954,3 +2954,131 @@ public class Demo01Person{
 }
 ```
 
+### 构造方法
+
+构造方法是专门用来创建对象的方法 , 当我们通过关键字new来创建对象时 , 其实就是在调用构造方法
+
+格式 : 
+
+```
+public 类名称(参数类型 参数名称){
+	方法体
+}
+```
+
+注意事项 : 
+
+1. 构造方法的名称必须和所在的类名称完全一样 , 就连大小写一样
+2. 构造方法不要写返回值类型 , 连void都不写
+3. 构造方法不能return一个具体的返回值
+4. 如果没有编写任何构造方法 , 那么编译器将会默认赠送一个构造方法 , 没有参数 . 方法体什么事情都不做  public Student(){}
+5. 一旦编写了至少一个构造方法 , 那么编译器将不再赠送
+6. 构造方法也是可以进行重载的
+   - 重载 : 方法名称相同 , 参数列表不同
+
+```java
+// Student类
+public class Student{
+    private String name;
+    private int age;
+    
+    public Student(){
+        System.out.println("无参构造方法执行啦!");
+    }
+    public Student(String name, int age){
+        System.out.println("有参构造方法执行啦!");
+        this.name = name;
+        this.age = age;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
+
+// Student对象
+public class Demo02Student{
+    public static void main(String[] args){
+        Student student1 = new Student();
+        System.out.println("==========");
+        Student student2 = new Student("赵丽颖",80);
+        System.out.println("姓名: " + student2.getName() + " 年龄: " + student2.getAge());
+        // 如果需要改变对象当中的成员变量数据内容 , 仍然还需要使用setXxx方法
+        student2.setAge(21);
+        System.out.println("姓名: " + student2.getName() + " 年龄: " + student2.getAge());
+    }
+}
+```
+
+### 标准类
+
+一个标准的类通常要拥有下面四个部分:
+
+1. 所有的成员变量都要使用private关键字修饰
+2. 为每一个成员变量编写一对Getter/Setter方法
+3. 编写一个无参数的构造方法
+4. 编写一个全参数的构造方法
+
+这样的一个标准的类也叫Java Bean
+
+```java
+// Student类
+public class Student {
+
+    private String name; // 姓名
+    private int age; // 年龄
+
+    public Student() {
+    }
+
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+// Student对象
+public class Demo01Student {
+    public static void main(String[] args) {
+        Student student1 = new Student();
+        student1.setName("迪丽热巴");
+        student1.setAge(20);
+        System.out.println("姓名: " + student1.getName() + " 年龄: " + student1.getAge());
+        System.out.println("=====================");
+
+        Student student2 = new Student("古力娜扎",22);
+        System.out.println("姓名: " + student2.getName() + " 年龄: " + student2.getAge());
+        student2.setName("大咪咪");
+        System.out.println("姓名: " + student2.getName() + " 年龄: " + student2.getAge());
+
+
+    }
+}
+```
+
