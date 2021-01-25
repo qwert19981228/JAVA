@@ -2458,8 +2458,34 @@ public class Demo01PrintArray{
 ### 特点
 
 1. 封装性
+   - 封装性在Java当中的体现
+     1. 方法就是一种封装
+     2. 关键字private也是一种封装
 2. 继承性
 3. 多态性
+
+```java
+// 方法就是一种封装
+public class Demo02Method{
+    public static void main(String[] args){
+        int[] array = new int[]{10,20,30,40};
+        int max = getMax(array);
+        System.out.println("最大值为: " + max);
+    }
+    
+    public static int getMax(int[] array){
+        int max = array[0];
+        for (int i = 0;i < array.length;i++){
+            if(array[i] > max){
+                max = array[i];
+            }
+        }
+        return max;
+    }
+}
+```
+
+
 
 ### 类与对象
 
@@ -2695,6 +2721,204 @@ public class Demo03PhoneSame {
 
     }
 }
+```
 
+两个引用指向了同一个对象空间
+
+![](E:\JAVA\Markdown\两个引用指向了同一个对象空间.png)
+
+
+
+```java
+// 使用对象类型作为方法的参数
+public class Demo04Param{
+    public static void main(String[] args){
+        Phone one = new Phone();
+        one.brand = "魅族";
+        one.color = "梦幻独角兽";
+        one.price = 3699.0;
+        method(one); // 传递进去的参数其实就是地址值
+    }
+    public static void method(Phone param){
+        System.out.println(param.brand);
+        System.out.println(param.color);
+        System.out.println(param.price);
+    }
+}
+```
+
+使用对象类型作为方法的参数
+
+![](E:\JAVA\Markdown\使用对象类型作为方法的参数.png)
+
+```java
+// 使用对象类型作为方法的返回值
+public class Demo05PhoneReturn{
+    public static void main(String[] args){
+        Phone two = new Phone();
+        System.out.println(two.price);
+        System.out.println(two.color);
+        System.out.println(two.brand);
+    }
+    public static Phone getPhone(){
+        Phone phone = new Phone();
+        phone.price = 7879.0;
+        phone.color = "屎黄色";
+        phone.brand = "苹果";
+        return phone;
+    }
+}
+```
+
+使用对象类型作为方法的返回值
+
+![](E:\JAVA\Markdown\使用对象类型作为方法的返回值.png)
+
+
+
+### 局部变量和成员变量
+
+局部变量 和 成员变量
+
+1. 定义的位置不一样[ 重点 ]
+   - 局部变量: 在方法的内部
+   - 成员变量: 在方法的外部 , 直接写在类当中
+2. 作用范围不一样[ 重点 ]
+   - 局部变量: 只有方法当中才可以使用 , 出了方法就不能使用
+   - 成员变量: 整个类全都可以使用
+3. 默认值不一样[ 重点 ]
+   - 局部变量: 没有默认值 , 如果要想使用 , 必须手动进行赋值
+   - 成员变量: 如果没有默认值 , 会有默认值 , 规则和数组一样
+4. 内存的位置不一样 ( 了解 )
+   - 局部变量: 位于栈内存
+   - 成员变量: 位于堆内存
+5. 生命周期不一样( 了解 )
+   - 局部变量: 随着方法进栈而诞生, 随着方法出栈而消失
+   - 成员变量: 随着对象创建而诞生, 随着对象被垃圾回收而消失
+
+```java
+public class Demo01VariableDifference{
+    String name; // 成员变量
+    
+    public void methodA(){
+        int num = 20; // 局部变量
+        System.out.println(num);
+        System.out.println(name);
+    }
+    
+    public void methodB(int param){ // 方法的参数就是局部变量
+        // 参数在方法调用的时候 , 必然会被赋值的
+        System.out.println(param);
+        int age; // 局部变量
+        // System.out.println(age);  // 没赋值不能用
+        // System.out.println(num);   // 错误写法 !
+        System.out.println(name);
+    }
+}
+```
+
+
+
+### Private关键字
+
+定义成员变量时 , 无法阻止不合理的数值被设置出来 , 
+
+就需要用private关键字将需要保护的成员变量进行修饰 .
+
+一旦使用了private进行修饰 , 那么本类当中仍然可以随意访问
+
+但是 ! 超出了本类范围之外就不能再直接访问了
+
+间接访问private成员变量 , 就是定义一对儿Getter/Setter方法
+
+必须叫setXxx或者是getXxx命名规则
+
+对于Getter来说 , 不能有参数 , 返回值类型和成员变量对应
+
+对于Setter来说 , 不能有返回值 , 参数类型和成员变量对应
+
+对于基本类型当中的boolean值 , Getter方法一定要写成isXxx的形式 , 而setXxx规则不变
+
+```java
+// Person类
+public class Person{
+    String name; // 姓名
+    private int age; // 年龄
+    
+    public void show(){
+        System.out.println("我叫: " + name + ", 年龄" + age);
+    }
+    
+    public void setAge(int age){
+        if (age <= 100 && age >= 0){
+            this.age = age;
+        }else{
+            System.out.println("数据错误!!!");
+        }
+    }
+    
+    public int getAge(){
+        return age;
+    }
+}
+
+// Person对象
+public class Demo03Person {
+    public static void main(String[] args) {
+        Person person = new Person();
+        person.show();
+
+        person.name = "迪丽热巴";
+//        person.age = 18;
+        person.setAge(20);
+        person.show();
+    }
+}
+```
+
+```java
+// Student类
+public class Student {
+    private String name; // 姓名
+    private int age;
+    private boolean male;
+
+    public void setMale(boolean male) {
+        this.male = male;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public boolean isMale() {
+        return male;
+    }
+}
+// Student对象
+public class Demo04Student{
+    public static void main(String[] args){
+        Student student = new Student();
+        student.setName("鹿晗");
+        student.setAge(20);
+        student.setMale(true);
+        
+        System.out.println("姓名: " + student.getName());
+        System.out.println("年龄: " + student.getAge());
+        System.out.println("是不是爷们: " + student.isMale());
+    }
+}
 ```
 
