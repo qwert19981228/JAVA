@@ -2555,3 +2555,146 @@ public class Demo02Student{
 }
 ```
 
+#### 一个对象与两个对象
+
+```java
+// 定义一个类 , 用来模拟"手机"事物
+// 属性: 品牌,价格,颜色
+// 行为: 打电话,发短信
+public class Phone{
+    // 成员变量
+    String brand; // 品牌
+    double price; // 价格
+    String color; // 颜色
+    
+    // 成员方法
+    public void call(String who){
+        System.out.println("给" + who + "打电话");
+    }
+    public void setMessage(){
+        System.out.println("群发短信");
+    }
+    
+}
+```
+
+```java
+// 一个对象
+public class Demo01PhoneOne{
+    public static void main(String[] args){
+        Phone phone = new Phone();
+        System.out.println(phone.brand); // null
+        System.out.println(phone.color); // null
+        System.out.println(phone.price); // double
+        
+        phone.brand = "魅族";
+        phone.color = "玫瑰金";
+        phone.price = 3699.0;
+ 		System.out.println(phone.brand);
+        System.out.println(phone.color);
+        System.out.println(phone.price);
+        System.out.println("=========");
+        
+        phone.call("乔布斯");
+        phone.setMessage();
+    }
+}
+```
+
+一个对象的内存图
+
+![](E:\JAVA\Markdown\一个对象的内存图.png)
+
+```java
+// 两个对象使用同一个方法
+public class Demo02PhoneTwo {
+    public static void main(String[] args) {
+        Phone phone1 = new Phone();
+        System.out.println(phone1);
+        System.out.println(phone1.brand); // null
+        System.out.println(phone1.color); // null
+        System.out.println(phone1.price); // double
+        System.out.println("=========");
+
+        phone1.brand = "魅族";
+        phone1.color = "玫瑰金";
+        phone1.price = 3699.0;
+        System.out.println(phone1.price);
+        System.out.println(phone1.color);
+        System.out.println(phone1.brand);
+        System.out.println("=========");
+
+        phone1.call("乔布斯");
+        phone1.setMessage();
+
+        Phone phone2 = new Phone();
+        System.out.println(phone2);
+        System.out.println(phone2.brand); // null
+        System.out.println(phone2.color); // null
+        System.out.println(phone2.price); // double
+        System.out.println("=========");
+
+        phone2.brand = "华为";
+        phone2.color = "墨绿";
+        phone2.price = 4699.0;
+        System.out.println(phone2.price);
+        System.out.println(phone2.color);
+        System.out.println(phone2.brand);
+        System.out.println("=========");
+
+        phone2.call("任正非");
+        phone2.setMessage();
+
+    }
+}
+```
+
+两个对象使用同一个方法的内存图
+
+![](E:\JAVA\Markdown\两个对象使用同一个方法的内存图.png)
+
+```java
+// 两个引用指向了同一个对象空间
+public class Demo03PhoneSame {
+    public static void main(String[] args) {
+        Phone phone1 = new Phone();
+        System.out.println(phone1);
+        System.out.println(phone1.brand); // null
+        System.out.println(phone1.color); // null
+        System.out.println(phone1.price); // double
+        System.out.println("=========");
+
+        phone1.brand = "魅族";
+        phone1.color = "玫瑰金";
+        phone1.price = 3699.0;
+        System.out.println(phone1.price);
+        System.out.println(phone1.color);
+        System.out.println(phone1.brand);
+        System.out.println("=========");
+
+        phone1.call("乔布斯");
+        phone1.setMessage();
+
+        Phone phone2 = phone1;
+        System.out.println(phone2);
+        System.out.println(phone2.brand); // null
+        System.out.println(phone2.color); // null
+        System.out.println(phone2.price); // double
+        System.out.println("=========");
+
+        phone2.brand = "华为";
+        phone2.color = "墨绿";
+        phone2.price = 4699.0;
+        System.out.println(phone2.price);
+        System.out.println(phone2.color);
+        System.out.println(phone2.brand);
+        System.out.println("=========");
+
+        phone2.call("任正非");
+        phone2.setMessage();
+
+    }
+}
+
+```
+
