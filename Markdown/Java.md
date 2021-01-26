@@ -3082,3 +3082,78 @@ public class Demo01Student {
 }
 ```
 
+
+
+## Scanner类
+
+Scanner类的功能 , 可以实现键盘输入数据 , 到程序当中
+
+引用类型的一般使用步骤 :
+
+1. 导包
+   - import  包路径 . 类名称
+   - 如果需要使用的目标类 , 和当前类位于同一包下 , 则可以省略导包语句不写
+   - 只有java.lang包下的内容不需要导包 , 其他的包需要import语句
+2. 创建
+   - 类名称  对象名  =  new  类名称( ) ;
+3. 使用
+   - 对象名 . 成员方法名( ) ;
+
+获取键盘输入的一个int数字 : int num = scanner . nextInt( ) ;
+
+获取键盘输入的一个字符串 : String str = scanner . next( ) ;
+
+```java
+public class Demo01Scanner{
+    public static void main(String[] args){
+        // 备注: System.in代表从键盘输入
+        Scanner scanner = new Scanner(System.in);
+        
+        int num = scanner.nextInt();
+        System.out,println("输入的Int数字是: " + num);
+        
+        String string = scanner,next();
+        System.out.println("输入的字符串是: " + string);
+    }
+}
+```
+
+练习 : 
+
+```java
+// 题目1: 键盘输入两个int数字,并且求出和值
+public class Demo02ScannerSum{
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        
+        System,out.println("请输入第一个数字:");
+        int a = scanner.nextInt();
+        System.out.println("请输入第二个数字:");
+        int b = scanner.nextInt();
+        
+        int result = a + b;
+        System.out.println("结果是: " + result);
+    }
+}
+
+// 题目2:键盘输入三个int数字 , 然后求出其中的最大值
+
+public class Demo03ScannerMax{
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("请输入第一个数字: ");
+        int a = scanner.nextInt();
+        System.out.println("请输入第二个数字: ");
+        int b = scanner.nextInt();
+        System.out.println("请输入第三个数字: ");
+        int c = scanner.nextInt();
+        
+        // 首先得到前两个数字当中的最大值
+        int temp = Math.max(a,b);
+        int max = Math.max(temp,c);
+        System.out.println("最大值为:" + max);
+    }
+}
+```
+
