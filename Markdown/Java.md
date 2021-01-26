@@ -3157,3 +3157,142 @@ public class Demo03ScannerMax{
 }
 ```
 
+
+
+## 匿名对象
+
+匿名对象就是只有右边的对象 , 没有左边的名字和赋值运算符
+
+new 类名称( ) ;
+
+注意事项 :
+
+匿名对象只能使用唯一的一次 , 下次再用不得不再创建一个对象
+
+使用建议:
+
+如果确定有一个对象只需要使用唯一的一次 , 就可以用匿名对象
+
+```java
+// Person类
+public class Person{
+    String name;
+    public void showName(){
+        System.out.println("我叫:" + name);
+    }
+}
+// Person对象
+public class Demo01Anonymous{
+    public static void main(String[] args){
+        // 左边的person1就是对象的名字
+        Person person1 = new Person();
+        person1.name = "高圆圆";
+        person1.showName();
+        System.out.println("=======");
+        
+        // 匿名对象
+        new Person().name = "赵又廷";
+        new Person().showName(); // 我叫 ,null
+    }
+}
+
+// 使用匿名对象传入参数
+public class Demo02Anonymous {
+    public static void main(String[] args) {
+        // 普通使用方式
+//        Scanner scanner = new Scanner(System.in);
+//        int num = scanner.nextInt();
+
+        // 匿名对象的方式
+//        int num = new Scanner(System.in).nextInt();
+//        System.out.println("输入的是: " + num);
+
+        // 使用一般写法传入参数
+//        Scanner scanner = new Scanner(System.in);
+//        methodParam(scanner);
+
+        // 使用匿名对象传入参数
+//        methodParam(new Scanner(System.in));
+		
+        // 返回值使用匿名对象
+        Scanner scanner = methodReturn();
+        int num = scanner.nextInt();
+        System.out.println("结果是: " + num);
+    }
+
+    public static void methodParam(Scanner scanner){
+        int num = scanner.nextInt();
+        System.out.println("输入的是: " + num);
+    }
+
+    public static Scanner methodReturn(){
+        return new Scanner(System.in);
+    }
+}
+```
+
+
+
+## Random类
+
+Random类用来生产随机数字
+
+使用:
+
+获取一个随机的int数字(范围是int所有范围 , 有正负两种) : int num = r.nextInt( );
+
+获取一个随机的int数字(参数代表了范围 , 左闭右开区间) : int num = r.nextInt( 3 );
+
+```java
+public class Demo01Random{
+    public static void main(String[] args){
+        Random random = new Random();
+        for(int i = 0;i < 10;i++){
+            int ran = random.nextInt();
+            int num = random.nextInt(11);
+            System.out.println("结果是: " + num + " " + ran);
+        }
+    }
+}
+```
+
+练习:
+
+```java
+// 题目1:根据int变量n的值 , 来获取随机数字, 范围是[1,n],可以取到1也可以取到n
+public class Demo02Random{
+    public static void main(String[] args){
+        int num = 5;
+        Random random = new Random();
+        for(int i = 0;i < 10;i++){
+            int result = random.nextInt(num) + 1;
+            System.out.println(result);
+        }
+    }
+}
+
+// 题目2:用代码模拟数字的小游戏
+public class Demo03Random{
+    public static void main(String[] args){
+        Random random = new Random();
+        int randomNum = random.nextInt(100) + 1;
+        Scanner scanner = new Scanner(System.in);
+        
+        while (true){
+            System.out.println("请输入您猜测的数字");
+            int guessNum = scanner.nextInt();
+            
+            if (guessNum > randomNum){
+                System.out.println("太大了, 请重试");
+            }else if (guessNum < randomNum){
+                System.out.println("太小了, 请重试");
+            }else{
+                System.out.println("恭喜你, 猜中啦");
+                break;
+            }
+        }
+        System.out.println("游戏结束啦");
+    }
+}
+```
+
