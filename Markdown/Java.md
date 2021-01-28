@@ -3563,9 +3563,76 @@ public class Demo00ArrayListPrint{
             if(i == list.size() - 1){
                 System.out.print(name + "}");
             }else{
-                System
+                System.out.print(name + "@");
             }
         }
+    }
+}
+// 题目2:生成6个1~33之间的随机整数, 添加到集合, 并遍历集合
+public class Demo01ArrayListRandom{
+    public static void main(String[] args){
+        ArrayList<Integer> list = new ArrayList<>();
+        Random random = new Random();
+        
+        for(int i = 0;i < 6;i++){
+            int num = random.nextInt(33) + 1;
+            list.add(num);
+        }
+        
+        for(int i = 0;i < list.size();i++){
+            System.out.print(list.get(i)+ " ");
+        }
+    }
+}
+
+// 题目3:自定义4个学生对象 , 添加到集合 , 并遍历
+public class Demo02ArrayListStudent{
+    public static void main(String[] args){
+        ArrayList<Student> students = new ArrayList<>();
+        Student student1 = new Student("洪七公",20);
+        Student student2 = new Student("黄药师",20);
+        Student student3 = new Student("欧阳锋",20);
+        Student student4 = new Student("段志心",20);
+    	
+        students.add(student1);
+        students.add(student2);
+        students.add(student3);
+        students.add(student4);
+        
+        for(int i = 0;i < students.size();i++){
+            Student student = students.get(i);
+            System.out.println("姓名: " + student.getName() + " 年龄: " + student.getAge());
+        }
+    }
+}
+
+// 题目4:用一个大集合存入20个随机数字 , 然后筛选其中的偶数元素, 放到小集合当中, 要求使用自定义的方法来实现筛选
+public class Demo04ArrayListReturn{
+    public static void main(String[] args){
+        ArrayList<Integer> bigList = new ArrayList<>();
+        Random random = new Random();
+        //添加20个随机数到集合中
+        for(int i = 0;i < 20;i++){
+            int num = random.nextInt(100) + 1;
+            bigList.add(num);
+        }
+        ArrayList<Integer> smallList = getSmallList(bigList);
+        
+        System.out.println("偶数总共有多少个: " + smallList.size());
+        for(int i = 0;i < smallList.size();i++){
+            System.out.println(smallList.get(i) + " ");
+        }
+    }
+    public static ArrayList<Integer> getSmallList(ArrayList<Integer> bigList){
+        // 创建一个小集合, 用来装偶数结果
+        ArrayList<Integer> smallList = new ArrayList<>();
+        for(int i = 0;i < bigList.size();i++){
+            int num = bigList.get(i);
+            if (num % 2 == 0){
+                smallList.add(num);
+            }
+        }
+        return smallList
     }
 }
 
