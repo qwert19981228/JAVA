@@ -3420,8 +3420,55 @@ public  int  size(  ): 获取集合的尺寸长度 , 返回值是集合中包含
 ```java
 public class Demo03ArrayListMethod{
     public static void main(String[] args){
+        ArrayList<String> list = new ArrayList<>();
+        System.out.println(list);
         
+        // 向集合中添加元素 : add
+        boolean success = list.add("柳岩");
+        System.out.println(list);
+        System.out.println("添加的动作是否成功: " + success); // true
+        
+        list.add("赵媛媛");
+        list.add("高圆圆");
+        list.add("赵又廷");
+        list.add("贾乃亮");
+        System.out.println(list); // 柳岩 , 赵媛媛 , 高圆圆 , 赵又廷 , 贾乃亮
+        
+        // 从集合中获取元素: get. 从索引值0开始
+        String s = list.get(2);
+        System.out.println("第二号索引位置: " + s); // 高圆圆
+        
+        // 从集合中删除元素: remove. 索引值从0开始
+        String whoRemoved = list.remove(1);
+        System.out.println("被删除的人是: " + whoRemoved);
+        System.out.println(list);
+        
+        // 获取集合的长度尺寸 , 也就是其中元素的个数
+        int size = list.size();
+        System.out.println("集合的长度是: " + size);
     }
 }
 ```
+
+
+
+### 遍历集合
+
+```java
+public class Demo04ArrayListEach{
+    public static void main(String[] args){
+        ArrayList<String> list = new ArrayList<>();
+        list.add("迪丽热巴");
+        list.add("古力娜扎");
+        list.add("玛尔扎哈");
+        
+        // 遍历集合
+        for(int i = 0;i < list.size();i++){
+            System.out.println(list.get(i));
+        }
+    }
+}
+```
+
+
 
