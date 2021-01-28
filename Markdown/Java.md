@@ -3556,7 +3556,17 @@ public class Demo00ArrayListPrint{
         printArrayList(list);
     }
     
-    public static void printArrayList
+    public static void printArrayList(ArrayList<String> list){
+        System.out.print("{");
+        for(int i = 0;i < list.size();i++){
+            String name = list.get(i);
+            if(i == list.size() - 1){
+                System.out.print(name + "}");
+            }else{
+                System
+            }
+        }
+    }
 }
 
 ```
