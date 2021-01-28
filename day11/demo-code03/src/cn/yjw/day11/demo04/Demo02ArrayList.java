@@ -20,7 +20,7 @@ public class Demo02ArrayList {
         ArrayList<String> list = new ArrayList<>();
         System.out.println(list);
 
-        // 向集合当中添加一些数据, 需要用到add方法+*
+        // 向集合当中添加一些数据, 需要用到add方法
         list.add("赵丽颖");
         System.out.println(list); // [赵丽颖]
 
