@@ -3514,6 +3514,50 @@ public class Demo05ArrayListBasic{
 例题 : 
 
 ```java
-// Person类
+// Student类
+public class Student {
+    private String name;
+    private int age;
+
+    public Student() {
+    }
+
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
+// 题目1:定义以指定格式打印集合的方法(ArrayList类型作为参数) , 使用{}扩起集合 , 使用@分割每个元素 格式参照{ 元素@元素@元素 }
+public class Demo00ArrayListPrint{
+    public static void main(String[] args){
+        ArrayList<String> list = new ArrayList<>();
+        list.add("张三丰");
+        list.add("宋远桥");
+        list.add("张翠山");
+        list.add("张无忌");
+        list.add("宋青书");
+        
+        printArrayList(list);
+    }
+    
+    public static void printArrayList
+}
+
 ```
 
