@@ -3296,3 +3296,97 @@ public class Demo03Random{
 }
 ```
 
+
+
+## ArrayList集合
+
+引 : 
+
+题目 : 定义一个数组 , 用来存储3个Person对象
+
+数组有一个缺点 , 一旦创建 , 程序运行期间长度不可发生改变
+
+```java
+// Person类
+public class Person {
+    private String name;
+    private int age;
+
+    public Person() {
+    }
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
+
+//Person对象
+public class Demo01Array{
+    public static void main(String[] args){
+        // 首先创建一个长度为3的数组 , 里面用来存放Person类型的对象
+        Person[] array = new Person[3];
+        
+        Person person1 = new Person("迪丽热巴" , 12);
+        Person person2 = new Person("古力娜扎" , 20);
+        Person person3 = new Person("玛尔扎哈" , 12);
+        
+        // 将one当中的地址值赋值到数组的0号元素位置
+        array[0] = person1;
+        array[1] = person2;
+        array[2] = person3;
+        
+        System.out.println(array[0]);
+        System.out.println(array[1]);
+        System.out.println(array[2]);
+        
+        System.out.println(array[1].getName());
+    }
+}
+```
+
+数组的长度不可以发生改变
+
+但是ArrayList集合的长度是可以随意变化的
+
+对于ArrayList来说 , 有一个尖括号`<E>`代表泛型
+
+泛型 : 也就是装在集合当中的所有元素 , 全都是统一的什么类型
+
+注意 : 泛型只能是引用类型 , 不能是基本类型
+
+注意事项 : 
+
+对于ArrayList集合来说 , 直接打印得到的不是地址值 , 而是内容
+
+如果内容是空 , 得到的是空的中括号[ ]
+
+```java
+public class Demo02ArrayList{
+    public static void main(String[] args){
+        // 创建了一个ArrayList集合 , 集合的名称是List , 里面装的全都是String字符串类型的数据
+        // 备注: 从JDK1.7+开始 , 右侧的尖括号全都可以不写内容 , 但是<0>本身还是要写的
+        ArrayList<String> list = new ArrayList<>();
+        System.out.println(list);
+        
+        // 向集合当中添加一些数据 , 需要用到add方法
+    }
+}
+```
+
