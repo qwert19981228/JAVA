@@ -3298,6 +3298,8 @@ public class Demo03Random{
 
 
 
+
+
 ## ArrayList集合
 
 引 : 
@@ -3386,6 +3388,39 @@ public class Demo02ArrayList{
         System.out.println(list);
         
         // 向集合当中添加一些数据 , 需要用到add方法
+        list.add("赵丽颖");
+        System.out.println(list); // 赵丽颖
+        
+        list.add("迪丽热巴");
+        list.add("古力娜扎");
+        list.add("玛尔扎哈");
+        
+        System.out.println(list);
+//        list.add(100); // 错误写法! 因为创建的时候尖括号泛型已经说了是字符串, 添加进去的元素就必须是字符串才行
+    }
+}
+```
+
+
+
+### ArrayList常用方法
+
+方法 : 
+
+public  boolean  add(E  e) : 向集合当中添加元素, 参数的类型和泛型一致, 返回值代表添加是否成功
+
+备注: 对于ArrayList集合来说 , add添加动作一定是成功的 , 所以返回值可用可不用 , 但是对于其他集合来说 , add添加动作不一定成功
+
+public  E  get(int index) : 从集合当中获取元素, 参数是索引编号 , 返回值就是对应位置的元素
+
+public  E  remove(int index) : 从集合当中删除元素 , 参数是索引编号 , 返回值就是被删除掉的元素
+
+public  int  size(  ): 获取集合的尺寸长度 , 返回值是集合中包含的元素个数
+
+```java
+public class Demo03ArrayListMethod{
+    public static void main(String[] args){
+        
     }
 }
 ```
