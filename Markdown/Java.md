@@ -3511,3 +3511,9 @@ public class Demo05ArrayListBasic{
 }
 ```
 
+例题 : 
+
+```java
+// Person类
+```
+
