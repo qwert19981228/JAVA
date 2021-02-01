@@ -37,6 +37,6 @@ public class Demo01StringEquals {
         System.out.println(strA.equalsIgnoreCase(strB)); // true.忽略大小写
 
         // 注意:只有英文字母区分大小写,其他都不区分大小写
-        System.out.println("abc一123".equalsIgnoreCase("abc壹123"));
+        System.out.println("abc一123".equalsIgnoreCase("abc壹123")); // false
     }
 }
