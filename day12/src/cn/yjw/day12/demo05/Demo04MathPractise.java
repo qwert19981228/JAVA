@@ -11,6 +11,8 @@ package cn.yjw.day12.demo05;
 * 3.每一个数字都是整数,所以步进表达式应该是num++,这样每次都是+1的
 * 4.如何拿到绝对值,Math.abs方法
 * 5.一旦发现了一个数字,需要让计数器++进行统计
+*
+* 备注:如果使用Math.ceil方法,-10.8可以变成-10.0.注意double也是可以进行++的
 * */
 public class Demo04MathPractise {
     public static void main(String[] args) {
