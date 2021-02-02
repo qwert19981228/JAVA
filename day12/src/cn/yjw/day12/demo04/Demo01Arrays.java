@@ -1,4 +1,4 @@
-package cn.yjw.day12.demo4;
+package cn.yjw.day12.demo04;
 
 /*
 * java.util.Arrays是一个与数组相关的工具类 , 里面提供了大量静态方法 , 用来实现数组常见的操作
