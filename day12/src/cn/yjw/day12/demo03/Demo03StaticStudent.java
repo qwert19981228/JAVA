@@ -1,5 +1,8 @@
 package cn.yjw.day12.demo03;
-
+/*
+* 注意: 根据类名称访问静态成员变量的时候
+* 全程和对象就没关系, 只和类有关系
+* */
 public class Demo03StaticStudent {
     public static void main(String[] args) {
         // 首先设置一下教室 , 这是静态的东西, 应该通过类名称进行调用
