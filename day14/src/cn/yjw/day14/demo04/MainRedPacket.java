@@ -23,6 +23,7 @@ public class MainRedPacket {
         one.receive(redList);
         Two.receive(redList);
         Three.receive(redList);
+
         manager.show();
         one.show();
         Two.show();
