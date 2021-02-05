@@ -1,6 +1,6 @@
 package cn.yjw.day15.demo01;
 
-public class Demo02Interfaace {
+public class Demo02Interface {
     public static void main(String[] args) {
         // 创建了实现类对象
         MyInterfaceDefaultA a = new MyInterfaceDefaultA();
@@ -10,7 +10,7 @@ public class Demo02Interfaace {
         a.methodDefault();
 
         System.out.println("===========================");
-        
+
         MyInterfaceDefaultB b = new MyInterfaceDefaultB();
         b.methodDefault();
         b.methodAbs();
