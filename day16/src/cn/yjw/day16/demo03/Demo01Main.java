@@ -16,6 +16,6 @@ public class Demo01Main {
         cat.catchMouse();
 
         // 错误的向下转型
-        Dog dog = (Dog) animal;
+//        Dog dog = (Dog) animal;
     }
 }
