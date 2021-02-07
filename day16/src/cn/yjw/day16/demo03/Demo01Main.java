@@ -8,8 +8,14 @@ package cn.yjw.day16.demo03;
 public class Demo01Main {
     public static void main(String[] args) {
         // 对象的向上转型, 就是: 父类引用指向子类对象
-        Animal animal = new Cat();
-
+        Animal animal = new Cat();  // 本来的创建时候是一只猫
         animal.eat();
+
+        // 向下转型
+        Cat cat = (Cat) animal;
+        cat.catchMouse();
+
+        // 错误的向下转型
+        Dog dog = (Dog) animal;
     }
 }
